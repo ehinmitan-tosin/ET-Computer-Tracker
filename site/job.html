@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Job · ET Computers</title>
+<link rel="stylesheet" href="/css/styles.css">
+<script type="module" src="/js/job.js"></script>
+</head>
+<body>
+<div class="app">
+
+<nav aria-label="Main" class="sidebar">
+<div class="brand">
+<div class="logo">ET</div>
+<div class="brand-text">
+<span class="brand-name">ET Computers</span>
+<span class="brand-sub">Repair tracker</span>
+</div>
+</div>
+<div class="nav-links">
+<a href="/index.html" class="nav-link">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1.5"></rect><rect x="14" y="3" width="7" height="5" rx="1.5"></rect><rect x="14" y="12" width="7" height="9" rx="1.5"></rect><rect x="3" y="16" width="7" height="5" rx="1.5"></rect></svg>
+Dashboard</a>
+<a href="/intake.html" class="nav-link">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 8v8M8 12h8"></path></svg>
+New intake</a>
+<a href="/index.html" class="nav-link" aria-current="page">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"></path></svg>
+All jobs</a>
+</div>
+<div class="user">
+<div id="user-initial" class="avatar" aria-hidden="true"></div>
+<div class="user-text">
+<span id="user-name" class="user-name"></span>
+<span class="user-role">Staff</span>
+</div>
+<a id="logout" href="/login.html" class="logout">Log out</a>
+</div>
+</nav>
+
+<main class="main">
+
+<a href="/index.html" class="back">← Back to dashboard</a>
+
+<p id="loading" class="loading">Loading job…</p>
+<div id="error" class="alert alert-error" role="alert" hidden></div>
+
+<section id="not-found" class="panel" hidden>
+<h1 class="section-title">Job not found</h1>
+<p class="empty-note">There is no job with this ticket number. <a href="/index.html">Back to the dashboard</a></p>
+</section>
+
+<div id="job" class="stack-8" hidden>
+
+<div id="notice" class="alert alert-success" role="status" hidden></div>
+
+<div class="title-row">
+<h1 id="ticket" class="ticket-title"></h1>
+<span id="status-badge" class="badge badge-lg"></span>
+</div>
+<span id="summary" class="job-summary"></span>
+
+<form id="job-form" class="columns job-columns">
+
+<div class="col-main col-main-narrow">
+
+<section class="panel panel-tight" aria-labelledby="h-fault">
+<h2 id="h-fault" class="section-title">Fault</h2>
+<div class="grid-240">
+<div class="reported">
+<span class="eyebrow">Reported by customer</span>
+<span id="reported-fault" class="prose"></span>
+</div>
+<label class="eyebrow field-eyebrow">Diagnosed by technician
+<textarea id="diagnosed-fault" name="diagnosedFault" rows="3" class="textarea"></textarea>
+</label>
+</div>
+</section>
+
+<section class="panel panel-tight" aria-labelledby="h-photos">
+<div class="section-head">
+<h2 id="h-photos" class="section-title">Photos <span class="count">· <span id="photo-count">0</span></span></h2>
+<button id="qr-toggle" type="button" class="btn btn-secondary btn-sm" aria-expanded="false" aria-controls="qr-box">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><path d="M14 14h3v3h-3zM20 14v.01M14 20h.01M17 20h3v-3"></path></svg>
+Show QR to add from phone</button>
+</div>
+<div id="qr-box" class="qr-box" hidden>
+<canvas id="qr" width="186" height="186" role="img" aria-label="QR code linking to this job's photo page"></canvas>
+<span class="qr-caption">Scan with your phone camera. It opens straight to this job's photo page.</span>
+<a id="qr-url" class="qr-url"></a>
+</div>
+<p class="empty-note">No photos yet. Photo upload is coming soon.</p>
+</section>
+
+<section class="panel panel-tight" aria-labelledby="h-condition">
+<h2 id="h-condition" class="section-title">Condition at arrival</h2>
+<dl id="specs" class="specs"></dl>
+<div class="cond-line cond-line-first"><span class="muted">Accessories received:</span> <span id="accessories"></span></div>
+<div class="cond-line"><span class="muted">Notes:</span> <span id="condition-notes"></span></div>
+</section>
+
+</div>
+
+<aside class="col-side col-side-wide">
+
+<section class="panel panel-sm" aria-labelledby="h-status">
+<h2 id="h-status" class="side-title">Status</h2>
+<div role="radiogroup" aria-labelledby="h-status" class="status-grid">
+<label class="choice status-opt" data-status="UNDER_REPAIR"><input type="radio" name="status" value="UNDER_REPAIR">Under Repair</label>
+<label class="choice status-opt" data-status="ON_HOLD"><input type="radio" name="status" value="ON_HOLD">On Hold</label>
+<label class="choice status-opt" data-status="COMPLETED"><input type="radio" name="status" value="COMPLETED">Completed</label>
+<label class="choice status-opt" data-status="DELIVERED"><input type="radio" name="status" value="DELIVERED">Delivered</label>
+</div>
+<span id="status-note" class="status-note"></span>
+<div class="date-block">
+<label class="field">Promised delivery date<input id="promised-date" name="promisedDate" type="date" class="input" required></label>
+</div>
+<button id="save" type="submit" class="btn btn-primary">Save changes</button>
+</section>
+
+<section class="panel panel-sm customer" aria-labelledby="h-customer">
+<h2 id="h-customer" class="side-title">Customer</h2>
+<span id="customer-name" class="customer-name"></span>
+<a id="customer-phone" class="customer-phone"></a>
+<span id="customer-email" class="customer-email"></span>
+</section>
+
+<section class="panel panel-sm" aria-labelledby="h-history">
+<h2 id="h-history" class="side-title">History</h2>
+<ol id="history" class="history"></ol>
+</section>
+
+</aside>
+</form>
+</div>
+
+</main>
+</div>
+</body>
+</html>

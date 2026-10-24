@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Add photos · ET Computers</title>
+<link rel="stylesheet" href="/css/styles.css">
+<script type="module" src="/js/photos.js"></script>
+</head>
+<body>
+<div class="phone">
+
+<header class="m-header">
+<div class="m-brand">
+<div class="logo logo-sm">ET</div>
+<span class="brand-name">Add photos</span>
+</div>
+</header>
+
+<main class="m-body">
+
+<p id="loading" class="loading">Loading job…</p>
+<div id="error" class="alert alert-error" role="alert" hidden></div>
+
+<div id="job" class="m-card" hidden>
+<div class="m-card-top">
+<span id="ticket" class="m-ticket"></span>
+<span id="status-badge" class="badge badge-sm"></span>
+</div>
+<span id="device" class="m-device"></span>
+<span id="customer" class="m-meta"></span>
+</div>
+
+<button id="take-photo" type="button" class="take" disabled>
+<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"></path><circle cx="12" cy="13" r="3.5"></circle></svg>
+<span class="take-label">Photo upload coming soon</span>
+</button>
+<span class="m-hint">Suggested: lid, screen, keyboard, underside, any damage</span>
+
+<a id="done" href="/index.html" class="m-done">Done</a>
+
+</main>
+</div>
+</body>
+</html>

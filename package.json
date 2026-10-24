@@ -1,18 +1,18 @@
 {
   "dependencies": {
-    "aws-amplify": "^6.22.2"
+    "aws-amplify": "^6.22.2",
+    "qrcode": "^1.5.4"
   },
-  "name": "et_repair_tracker_revived",
+  "name": "et-repair-tracker",
   "version": "1.0.0",
-  "description": "��#\u0000 \u0000E\u0000T\u0000-\u0000C\u0000o\u0000m\u0000p\u0000u\u0000t\u0000e\u0000r\u0000-\u0000T\u0000r\u0000a\u0000c\u0000k\u0000e\u0000r\u0000\r\u0000 \u0000",
-  "main": "index.js",
+  "description": "ET Computers Ventures repair tracker (frontend)",
   "devDependencies": {
     "vite": "^8.3.4"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "repository": {
     "type": "git",
@@ -21,9 +21,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/ehinmitan-tosin/ET-Computer-Tracker/issues"
   },
-  "homepage": "https://github.com/ehinmitan-tosin/ET-Computer-Tracker#readme"
+  "homepage": "https://github.com/ehinmitan-tosin/ET-Computer-Tracker#readme",
+  "private": true
 }

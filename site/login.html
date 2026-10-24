@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Staff login · ET Computers</title>
+<link rel="stylesheet" href="/css/styles.css">
+<script type="module" src="/js/login.js"></script>
+</head>
+<body>
+<div class="login-shell">
+<form id="login-form" class="login-card">
+<div class="login-head">
+<div class="logo logo-lg">ET</div>
+<h1 class="login-title">ET Computers Ventures</h1>
+<span class="login-sub">Staff sign in to the repair tracker</span>
+</div>
+<label class="field" for="email">Email<input id="email" name="email" type="email" class="input input-lg" autocomplete="username" placeholder="you@etcomputers.ng" required></label>
+<label class="field" for="password">Password<input id="password" name="password" type="password" class="input input-lg" autocomplete="current-password" required></label>
+<div id="error" class="alert alert-error" role="alert" hidden></div>
+<button id="submit" type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
+<span class="login-foot">Accounts are created by the shop owner. Forgot your password? Ask the admin to reset it.</span>
+</form>
+</div>
+</body>
+</html>
